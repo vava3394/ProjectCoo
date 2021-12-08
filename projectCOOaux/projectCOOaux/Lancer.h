@@ -3,7 +3,6 @@
 #include <array> 
 #include <iostream>
 #include<string>
-#include <ctime>
 #include <cstdlib>
 #include "Figure.h"
 #include "Brelan.h"
@@ -21,13 +20,14 @@ using namespace std;
 class Lancer {
 	friend class Joueur;
 private:
-	array < int, 5 > de;
-	array < Figure*, 7> tabF;
-	map<string, int> scoreByFigure;
+	vector <int> vectDe;
+	vector <bool> vectRoll;
+	vector <Figure*> vectTabF;
+	map<string, int> mapScoreByFigure;
 public:
 	Lancer();
 	void verif();
 	void des();
-	void des(array <bool,5>);
+	void roll();
 	friend std::ostream& operator<<(std::ostream& os, const Lancer& t);
 };

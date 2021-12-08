@@ -11,10 +11,10 @@ Plateau::Plateau(int nbJoueurs) :nbJoueurs(nbJoueurs), lance(Lancer()) {
 
 void Plateau::run() {
 	string rep;
-	for (int tour = 0; tour < 13; tour++) {
-		for (int i = 0; i < (int)size(joueurs); i++) {
-			joueurs[i]->lancer();
-			/*for (int i = 0; i < 3; i++) {
+	for (int tour = 0; tour < 12; tour++) {
+		for (int numJoueur = 0; numJoueur < (int)size(joueurs); numJoueur++) {
+			joueurs[numJoueur]->lancer();
+			for (int i = 0; i < 3; i++) {
 				cout << "roll ? (y/n)" << endl;
 				cin >> rep;
 				while (rep != "y" && rep != "n") {
@@ -22,13 +22,20 @@ void Plateau::run() {
 					cin >> rep;
 				}
 				if (rep == "y") {
-					joueurs[i]->roll();
+					joueurs[numJoueur]->roll();
 				}
 				else {
 					i = 3;
 				}
 			}
-			joueurs[i]->save();*/
+			joueurs[numJoueur]->save();
+		}
+	}
+	cout << "----------classement----------" << endl;
+	while ((int)size(joueurs) > 0) {
+		Joueur j = *this->joueurs[0];
+		for (int numJoueur = 0; numJoueur < (int)size(joueurs); numJoueur++) {
+			
 		}
 	}
 }

@@ -8,11 +8,11 @@
 class Full : public Figure {
 public:
 	Full() {
-		this->name = "full";
+		this->name = "Full";
 		this->desc = "Trois dés identiques + deux dés identiques, Points = 25.";
 		this->points = 25;
 	};
-	virtual bool verif(const array<int, 5> tabDe) {
+	virtual bool verif(const vector<int> tabDe) {
 		Brelan b = Brelan();
 		vector<int> listePossibleDouble;
 		if (b.verif(tabDe)) {

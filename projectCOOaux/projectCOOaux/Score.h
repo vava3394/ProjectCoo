@@ -4,6 +4,7 @@
 class Score
 {
 	friend class Joueur;
+private:
 	int point;
 	bool save;
 public:

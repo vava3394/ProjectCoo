@@ -15,7 +15,6 @@ class Joueur
 private:
 	string name;
 	int totalScore;
-	array <bool, 5> tabRoll;
 	map <string, Score*> mapScore;
 	Lancer* l;
 public:
@@ -23,5 +22,6 @@ public:
 	void lancer();
 	void roll();
 	void save();
+	void affichage();
 	friend std::ostream& operator<<(std::ostream& os, const Joueur& t);
 };

@@ -1,37 +1,63 @@
 //valentin, Mask
 #include "Lancer.h"
+#define RED     "\033[31m"      /* Red */
+#define WHITE   "\033[37m"      /* White */
 
 Lancer::Lancer() {
-	this->de = { 0,0,0,0,0 };
-	this->tabF = { new BigSuite(), new LittleSuite(),new Brelan(),new Full(),new Carre(),new Yahtzee(),new Chance() };
-	for (int i = 0; i < (int)size(this->tabF); i++) {
-		scoreByFigure.insert(pair<string,int>((*this->tabF[i]).name,0));
+	this->vectDe = { 0,0,0,0,0 };
+	this->vectRoll = { 0,0,0,0,0 };
+	this->vectTabF = { new BigSuite(), new LittleSuite(),new Brelan(),new Full(),new Carre(),new Yahtzee(),new Chance() };
+	for (int i = 0; i < (int)size(this->vectTabF); i++) {
+		mapScoreByFigure.insert(pair<string,int>((*this->vectTabF[i]).name,0));
 	}
 }
 
 void Lancer::verif() {
-	for (map<string, int>::iterator it = scoreByFigure.begin(); it != scoreByFigure.end(); it++) {
+	for (map<string, int>::iterator it = mapScoreByFigure.begin(); it != mapScoreByFigure.end(); it++) {
 		(*it).second = 0;
 	}
-	sort(this->de.begin(),this->de.end());
-	cout << *this << endl;
-	for (int i = 0; i < (int)size(this->tabF); i++) {
-		if ((*this->tabF[i]).verif(this->de)) {
-			scoreByFigure[(*this->tabF[i]).name] = (*this->tabF[i]).points;
+	vector<int> aux = this->vectDe;
+	sort(aux.begin(),aux.end());
+	for (int i = 0; i < (int)size(this->vectTabF); i++) {
+		if ((*this->vectTabF[i]).verif(aux)) {
+			mapScoreByFigure[(*this->vectTabF[i]).name] = (*this->vectTabF[i]).points;
 		}
 	}
 }
 
 void Lancer::des() {
+	srand(time(NULL));
 	for (int i = 0; i < 5; i++) {
-		this->de[i] = (rand()%6)+1 ;
+		this->vectRoll[i] = 0;
+		this->vectDe[i] = (rand() % 6) + 1;
 	}
+	cout << *this << endl;;
 }
 
+void Lancer::roll() {
+	srand(time(NULL));
+	for (int i = 0; i < 5; i++) {
+		if (!this->vectRoll[i]) {
+			this->vectDe[i] = (rand() % 6) + 1;
+			
+		}
+		this->vectRoll[i] = 0;
+	}
+	cout << *this << endl;
+}
+
+
 std::ostream& operator<<(std::ostream& os, const Lancer& t) {
-	string res = "Voici les des tirés : [ ";
+	string res = "Voici les des : [ ";
 	for (int i = 0; i < 5;i++) {
-		res += to_string(t.de[i]) + " ";
+		if (!t.vectRoll[i]) {
+			res += to_string(t.vectDe[i]) + " ";
+		}
+		else {
+			res += RED + to_string(t.vectDe[i]) + WHITE + " ";
+		}
+		
+		
 	}
 	res += "]";
 	return os << res;

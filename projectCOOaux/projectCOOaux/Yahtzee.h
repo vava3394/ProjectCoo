@@ -9,7 +9,7 @@ public:
 		this->desc = "Cinq dés identiques, Points = 50.";
 		this->points = 50;
 	};
-	virtual bool verif(const array<int, 5> tabDe) {
+	virtual bool verif(const vector<int> tabDe) {
 		int pos = 1;
 		int aux = tabDe[0];
 		while (aux == tabDe[pos]) {

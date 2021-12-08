@@ -9,7 +9,7 @@ public :
 		this->desc = "Trois des identiques, Points = Somme de tous les des.";
 		this->points = 0;
 	};
-	virtual bool verif(const array<int, 5> tabDe) {
+	virtual bool verif(const vector<int> tabDe) {
 		this->points = 0;
 		int de = tabDe[0];
 		int aux = 1;
