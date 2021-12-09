@@ -6,7 +6,7 @@
 Lancer::Lancer() {
 	this->vectDe = { 0,0,0,0,0 };
 	this->vectRoll = { 0,0,0,0,0 };
-	this->vectTabF = { new BigSuite(), new LittleSuite(),new Brelan(),new Full(),new Carre(),new Yahtzee(),new Chance() };
+	this->vectTabF = { new PartieSuperieur<1>() ,new PartieSuperieur<2>() ,new PartieSuperieur<3>() ,new PartieSuperieur<4>() ,new PartieSuperieur<5>() ,new PartieSuperieur<6>() ,new BigSuite(), new LittleSuite(),new Brelan(),new Full(),new Carre(),new Yahtzee(),new Chance() };
 	for (int i = 0; i < (int)size(this->vectTabF); i++) {
 		mapScoreByFigure.insert(pair<string,int>((*this->vectTabF[i]).name,0));
 	}

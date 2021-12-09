@@ -1,6 +1,6 @@
 #include "Joueur.h"
 
-Joueur::Joueur(string name, Lancer* lance) :name(name), totalScore(0) {
+Joueur::Joueur(string name, Lancer* lance) :name(name), totalPartieSup(0), totalTwoPartie(0) {
 	this->l = lance;
 	for (int i = 0; i < (int)l->mapScoreByFigure.size(); i++) {
 		for (map<string, int>::iterator it = this->l->mapScoreByFigure.begin(); it != this->l->mapScoreByFigure.end(); it++) {
@@ -21,9 +21,6 @@ void Joueur::affichage() {
 		s = *mapScore[(*it).first];
 		if (!s.save) {
 			cout << (*it).first << " : " << (*it).second << " points !" << endl;
-		}
-		else {
-			cout << "save " << (*it).first << " : " << s << endl;
 		}
 	}
 }
@@ -60,6 +57,11 @@ void Joueur::roll() {
 	affichage();
 };
 
+template<typename Base, typename T>
+inline bool instanceof(const T*) {
+	return is_base_of<Base, T>::value;
+}
+
 void Joueur::save() {
 	string rep;
 	Score* s;
@@ -73,8 +75,11 @@ void Joueur::save() {
 	}
 	s->save = true;
 	s->point = this->l->mapScoreByFigure[rep];
+	this->totalTwoPartie += s->point;
 }
 
 std::ostream& operator<<(std::ostream& os, const Joueur& t) {
-	return os << "Joueur : " << t.name << " a un score de : " << t.totalScore;
+	string res = "";
+	os << "----------Joueur " << t.name << "----------" << endl;
+	return os << "score de : " << t.totalTwoPartie;
 };

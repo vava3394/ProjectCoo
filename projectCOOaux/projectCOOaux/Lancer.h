@@ -12,6 +12,7 @@
 #include "Carre.h"
 #include "Yahtzee.h"
 #include "Chance.h"
+#include "PartieSuperieur.h"
 #include <algorithm>
 #include <map>
 

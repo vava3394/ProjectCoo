@@ -14,7 +14,8 @@ class Joueur
 {
 private:
 	string name;
-	int totalScore;
+	int totalPartieSup;
+	int totalTwoPartie;
 	map <string, Score*> mapScore;
 	Lancer* l;
 public:

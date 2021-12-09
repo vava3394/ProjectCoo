@@ -2,7 +2,7 @@
   Lancer.cpp
 C:\Users\vava3\Documents\project\ProjectCoo\projectCOOaux\projectCOOaux\Lancer.cpp(29,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
 C:\Users\vava3\Documents\project\ProjectCoo\projectCOOaux\projectCOOaux\Lancer.cpp(38,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Plateau.cpp
   main.cpp
+  Plateau.cpp
   Génération de code en cours...
   projectCOOaux.vcxproj -> C:\Users\vava3\Documents\project\ProjectCoo\projectCOOaux\x64\Debug\projectCOOaux.exe

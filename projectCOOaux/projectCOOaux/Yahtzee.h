@@ -15,6 +15,7 @@ public:
 		while (aux == tabDe[pos]) {
 			pos++;
 			if (pos == 5) {
+				this->numberDe = aux;
 				return true;
 			}
 		}

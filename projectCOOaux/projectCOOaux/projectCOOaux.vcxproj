@@ -148,6 +148,7 @@
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="Lancer.h" />
     <ClInclude Include="LittleSuite.h" />
+    <ClInclude Include="PartieSuperieur.h" />
     <ClInclude Include="Plateau.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Yahtzee.h" />
